@@ -1,0 +1,8 @@
+{
+"SpaProxyServer": {
+"ServerUrl": "https://localhost:44413",
+"LaunchCommand": "npm start",
+"WorkingDirectory": "C:\\Users\\livel\\source\\repos\\NudeSolutionsAssignment\\NudeSolutionsAssignment\\ClientApp\\",
+"MaxTimeoutInSeconds": "120"
+}
+}
