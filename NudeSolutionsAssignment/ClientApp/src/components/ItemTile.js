@@ -5,7 +5,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 
 export default function ItemTile(props) {
     
-    return (<div className="card p-1" style={{ transition: "all 2s" } }>
+    return (<div className="card p-1" style={{ marginBottom:"5px" } }>
         <Stack direction="horizontal" gap={ 3} >
             <h6 className="me-auto card-text">{props.name}</h6>
             <div>

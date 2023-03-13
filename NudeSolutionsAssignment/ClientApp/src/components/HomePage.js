@@ -213,7 +213,7 @@ export default function HomePage() {
 
         <div className="Row" >
             <h1>Nude Solutions</h1>
-            <div style={{ maxWidth: "700px", margin: "auto" }}>
+            <div className="card" style={{ maxWidth: "700px", margin: "auto", backgroundColor:"grey" }}>
 
                 <ul className="listview" style={{ listStyle: "none" }}>
                     {
@@ -221,9 +221,9 @@ export default function HomePage() {
                             <span className="visually-hidden">Loading...</span>
                         </Spinner></div> : <ListItem />
                     }
-
+                    <HeaderTile price={totalPrice} name="Total"></HeaderTile>
                 </ul>                
-                <HeaderTile price={totalPrice} name="Total"></HeaderTile>
+                
                 <Form onSubmit={handleSubmit} className="rounded p-4">
                     <Stack direction="horizontal" gap={3}>
                         <input className="w-25 form-control" type="text" placeholder="Item Name" onChange={handleItemNameChange} required></input>
