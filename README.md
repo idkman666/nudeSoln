@@ -3,7 +3,7 @@
 Nude Solutions assignment
 
 #To run the application
-- Download all the file.
+- Download all the files.
 - Open solution and run the project in Visual Studio 22.
 
 #Datastorage
