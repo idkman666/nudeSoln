@@ -31,6 +31,8 @@ Nude Solutions assignment
 #Demo
 
 
+https://user-images.githubusercontent.com/46905186/224753225-a1709a27-4288-4eaa-bd01-fa8a5cb6cd24.mp4
 
-https://user-images.githubusercontent.com/46905186/224739799-3af28d29-0f39-4362-a0d9-e006c8494f10.mp4
+
+
 
