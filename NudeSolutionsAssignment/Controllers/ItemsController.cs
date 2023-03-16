@@ -32,9 +32,15 @@ namespace NudeSolutionsAssignment.Controllers
 
         [HttpPost]
         [Route("addItemCollection/{userId}")]
-        public async Task AddItemCollection([FromBody] dynamic itemCollectionData, string userId )
+        public async Task<ActionResult<Dictionary<string,string>>> AddItemCollection([FromBody] dynamic itemCollectionData, string userId )
         {           
-            await _listService.AddItemCollection(itemCollectionData, userId);
+            string collectionId = await _listService.AddItemCollection(itemCollectionData, userId);
+            Dictionary<string, string> responsePayload = new Dictionary<string, string> { ["collectionId"] = collectionId };
+            if(collectionId != null && collectionId.Length > 0) {
+                return Ok(responsePayload);
+            }
+            return BadRequest("Could not retrive CollectionId. Update might be currupted!!");          
+
         }
 
 

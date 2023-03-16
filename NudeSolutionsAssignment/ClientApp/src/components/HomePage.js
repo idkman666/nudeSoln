@@ -46,13 +46,13 @@ export default function HomePage() {
             let itemCollecitonUrl = "/items/getAllItemCollection/" + userId;
             const data = await fetch(itemCollecitonUrl);
             const jsonData = await data.json();
-            if (Object.keys(jsonData.categoryItemsMap).length === 0) {
+            if (jsonData.categoryItemsMap === null || Object.keys(jsonData.categoryItemsMap).length === 0) {
                 setIsLoading(false);
             }
             setItemCollection(jsonData.categoryItemsMap);
             setCollectionId(jsonData.collectionId);
             setUserId(userId);
-            console.log(`itemcollection: ${jsonData}`);
+           
         }
         getCategory();
         getItemCollections();
@@ -63,7 +63,7 @@ export default function HomePage() {
 
     useEffect(() => {
         calculateTotal();
-        if ( Object.keys(itemCollection).length > 0) {
+        if ( itemCollection !== undefined && itemCollection !== null && Object.keys(itemCollection).length > 0) {
             setIsLoading(false);
         }
         
@@ -128,15 +128,13 @@ export default function HomePage() {
             }
         }).catch((e) => alert("Error saving data"));
         if (response.ok) {
-            alert("Data Saved!");
+            
             //set collectionID only if it is not a PATCH
-            if (method !== "PATCH") {
-                let itemCollecitonUrl = "/items/getAllItemCollection/" + userId;
-                const data = await fetch(itemCollecitonUrl);
-                const jsonData = await data.json();
-                setCollectionId(jsonData.collectionId);
-
+            if (method === "POST") {
+                var jsonData = await response.json();
+                setCollectionId(jsonData.collectionId);                
             }
+            alert("Data Saved!");
             setIsDataDirty(false);
         } else if (!response.ok) {
             alert("Data Save FAILED!");

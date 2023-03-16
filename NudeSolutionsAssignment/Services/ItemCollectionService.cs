@@ -33,7 +33,7 @@ namespace NudeSolutionsAssignment.Services
         }
 
         //adding fresh data
-        public async Task AddItemCollection(dynamic itemCollectionData, string userId)
+        public async Task<string> AddItemCollection(dynamic itemCollectionData, string userId)
         {
             Dictionary<string, IList<Item>> categoryItemMap = JsonSerializer.Deserialize<Dictionary<string, IList<Item>>>(itemCollectionData);
             var textBytes = System.Text.Encoding.UTF8.GetBytes(userId);
@@ -44,7 +44,9 @@ namespace NudeSolutionsAssignment.Services
                 userId = _userId,
                 categoryItemsMap = categoryItemMap
             };
-            await _itemCollection.InsertOneAsync(itemCollection);
+            await _itemCollection.InsertOneAsync(itemCollection) ;
+            string collecitonId = itemCollection.collectionId;
+            return collecitonId;
         }
 
         public async Task UpdateItemCollection(dynamic itemCollectionData, string collectionId, string userId)

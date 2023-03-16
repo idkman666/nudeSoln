@@ -4,7 +4,7 @@ namespace NudeSolutionsAssignment.Services
 {
     public interface IItemCollectionService
     {
-        Task AddItemCollection(dynamic itemCollectionData, string userId);
+        Task<string> AddItemCollection(dynamic itemCollectionData, string userId);
         Task DeleteItemCollection(string collectionId);
         List<Category> GetItemCategories();
         ItemCollection GetItemCollection(string userId);
